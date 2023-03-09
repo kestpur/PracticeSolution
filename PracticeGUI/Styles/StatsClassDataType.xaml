@@ -1,0 +1,180 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:con="clr-namespace:PracticeGUI.Converters"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DataTemplate x:Key="StatsClassTemplate">
+        <DataTemplate.Resources>
+            <ResourceDictionary>
+                <con:StatsModifierConverter x:Key="StatsModifierConverter"/>
+            </ResourceDictionary>
+        </DataTemplate.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" 
+                        Grid.Column="0" 
+                        Grid.Row="0" 
+                        HorizontalAlignment="Right">
+                <Label Content=" Str:"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center"
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top"
+                       Height="23" 
+                       Margin="5"/>
+                <TextBlock x:Name="strBox" 
+                             HorizontalAlignment="Left" 
+                             Height="23" Margin="5" 
+                             TextWrapping="NoWrap"
+                             Text="{Binding Strength}" 
+                             VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="strModBox" 
+                           HorizontalAlignment="Left" 
+                           Height="23" Margin="5" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                    Content="{Binding Strength, Converter={StaticResource StatsModifierConverter}}" 
+                    VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                            Grid.Column="1" 
+                            Grid.Row="0" 
+                            HorizontalAlignment="Left">
+                <Label Content=" Int:"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"
+                   Height="23" Margin="5"/>
+                <TextBox x:Name="intBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                    TextWrapping="NoWrap" IsReadOnly="True"
+                             HorizontalContentAlignment="Center" 
+                             VerticalContentAlignment="Center"
+                    Text="{Binding Intelligence}" 
+                    VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="intModBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                    Content="{Binding Intelligence, Converter={StaticResource StatsModifierConverter}}" 
+                    VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+            <StackPanel x:Name="Dex"
+                            Orientation="Horizontal" 
+                            Grid.Column="0" 
+                            Grid.Row="1" 
+                            HorizontalAlignment="Right">
+                <Label Content=" Dex:"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"                           
+                   Height="23" Margin="5"/>
+                <TextBox x:Name="dexBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+                    TextWrapping="NoWrap" IsReadOnly="True"
+                    Text="{Binding Dexterity}" 
+                    VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="dexModBox" 
+                           HorizontalAlignment="Left" 
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"
+                           Height="23" Margin="5" 
+                           Content="{Binding Dexterity, Converter={StaticResource StatsModifierConverter}}" 
+                           VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                            Grid.Column="1" 
+                            Grid.Row="1" 
+                            x:Name="Wis"
+                            HorizontalAlignment="Left">
+                <Label Content="Wis:"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"
+                   Height="23" Margin="5"/>
+                <TextBox x:Name="wisBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+                    TextWrapping="NoWrap" IsReadOnly="True"
+                    Text="{Binding Wisdom}" 
+                    VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="wisModBox" 
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"
+                           HorizontalAlignment="Left" 
+                           Height="23" Margin="5" 
+                           Content="{Binding Wisdom, Converter={StaticResource StatsModifierConverter}}" 
+                           VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                            Grid.Column="0" 
+                            Grid.Row="2"
+                            x:Name="Con"
+                            HorizontalAlignment="Right">
+                <Label Content=" Con:"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                           HorizontalContentAlignment="Center" 
+                           VerticalContentAlignment="Center"
+                   Height="23" Margin="5"/>
+                <TextBox x:Name="conBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                    TextWrapping="NoWrap" 
+                             IsReadOnly="True"
+                             HorizontalContentAlignment="Center" 
+                             VerticalContentAlignment="Center"
+                    Text="{Binding Constitution}" 
+                    VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="conModBox" 
+                           HorizontalContentAlignment="Center"
+                           VerticalContentAlignment="Center"
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                    Content="{Binding Constitution,
+                        Mode=OneWay, Converter={StaticResource StatsModifierConverter}}" 
+                    VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                            Grid.Column="1" 
+                            Grid.Row="2"
+                            x:Name="Cha"
+                            HorizontalAlignment="Left">
+                <Label Content="Cha:"
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   Height="23" Margin="5"/>
+                <TextBox x:Name="chaBox" 
+                    HorizontalAlignment="Left" 
+                    Height="23" Margin="5" 
+                    TextWrapping="NoWrap" 
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    Text="{Binding Charisma}" 
+                    VerticalAlignment="Top" Width="40"/>
+                <Label x:Name="chaModBox" 
+                           HorizontalAlignment="Left" 
+                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                           Height="23" Margin="5" 
+                           Content="{Binding Charisma, Converter={StaticResource StatsModifierConverter}}" 
+                           VerticalAlignment="Top" Width="40"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

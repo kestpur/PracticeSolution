@@ -1,0 +1,54 @@
+﻿<Window x:Class="PracticeGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PracticeGUI"
+        
+        xmlns:vms="clr-namespace:PracticeViewModel;assembly=PracticeViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" >
+    <Window.Resources>
+        <!-- this is for custom resources -->
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <!-- This should look like the Bard's Tale layout -->
+        <!-- Upper right is the selected character -->
+        <!-- Upper left is for displaying additional data (monster, map, building) -->
+        <!-- Bottom is the list of those in the party -->
+        <!-- Need a character creation screen that overlays the layout -->
+        <Border x:Name="CharacterCreation" 
+                Visibility="{Binding ShowCharacterCreator, Converter={StaticResource BooleanToVisibilityConverter}}" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+            <local:CreateCharacterView/>
+        </Border>
+        <Border x:Name="Game" 
+                Visibility="{Binding ShowGame, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="control"
+                      Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="picture"/>
+                        <ColumnDefinition x:Name="details"/>
+                    </Grid.ColumnDefinitions>
+                    <local:CharacterView Grid.Column="1" />
+                </Grid>
+                <Grid x:Name="party" Grid.Row="1">
+                    <local:MultipleCreaturesView/>
+                </Grid>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="2"
+                            x:Name="controls">
+                    
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
