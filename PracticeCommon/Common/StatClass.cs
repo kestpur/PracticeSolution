@@ -6,8 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PracticeCommon.Common
 {
@@ -15,6 +13,7 @@ namespace PracticeCommon.Common
     public class StatClass : BindableBase
     {
         #region Properties
+
         private int strength;
 
         [DataMember]
@@ -25,6 +24,7 @@ namespace PracticeCommon.Common
         }
 
         private int intelligence;
+
         [DataMember]
         public int Intelligence
         {
@@ -33,6 +33,7 @@ namespace PracticeCommon.Common
         }
 
         private int wisdom;
+
         [DataMember]
         public int Wisdom
         {
@@ -41,6 +42,7 @@ namespace PracticeCommon.Common
         }
 
         private int charisma;
+
         [DataMember]
         public int Charisma
         {
@@ -49,6 +51,7 @@ namespace PracticeCommon.Common
         }
 
         private int dexterity;
+
         [DataMember]
         public int Dexterity
         {
@@ -57,24 +60,41 @@ namespace PracticeCommon.Common
         }
 
         private int constitution;
+
         [DataMember]
         public int Constitution
         {
             get => constitution;
             set => SetProperty(ref constitution, value);
         }
-        #endregion
+
+        #endregion Properties
+
         #region Constructors
+
         private Random rand;
+
+        /// <summary>
+        /// Constructor for StatClass
+        /// - Creates a Random object for this object to use
+        /// </summary>
         public StatClass()
         {
             rand = new Random();
         }
-        #endregion
+
+        #endregion Constructors
+
         #region Methods
+
+        /// <summary>
+        /// Used to set all Properties
+        /// </summary>
+        /// <param name="numDice">The number of dice to roll</param>
+        /// <param name="discardLow">The discard lowest flag</param>
+        /// <param name="min">The minimum value to accept from a single die roll</param>
         public void Init(int numDice, bool discardLow = false, int min = 2)
         {
-
             Charisma = GetStatValue(numDice, discardLow, min);
             Strength = GetStatValue(numDice, discardLow, min);
             Intelligence = GetStatValue(numDice, discardLow, min);
@@ -83,6 +103,11 @@ namespace PracticeCommon.Common
             Dexterity = GetStatValue(numDice, discardLow, min);
         }
 
+        /// <summary>
+        /// The stat modifier
+        /// </summary>
+        /// <param name="value">The stat value to use</param>
+        /// <returns>The modifier value (-5 is the minimum)</returns>
         public static int Modifier(int value)
         {
             if (value == 1) return -5;
@@ -91,16 +116,27 @@ namespace PracticeCommon.Common
             return dev - 5;
         }
 
+        /// <summary>
+        /// Rolls the dice for this class
+        /// </summary>
+        /// <returns>The value of the die</returns>
         private int RollDie()
         {
             int die = DieTypeHelper.RollDie(rand, Enums.DieType.SIX);
             return die;
         }
 
+        /// <summary>
+        /// Creates the full value that will be used for a stat
+        /// </summary>
+        /// <param name="numDice">The number of dice to roll</param>
+        /// <param name="discardLow">The flag to discard the lowest die value</param>
+        /// <param name="min">The minimum die value to accept</param>
+        /// <returns></returns>
         private int GetStatValue(int numDice, bool discardLow, int min)
         {
             Dictionary<int, int> rolls = new Dictionary<int, int>();
-            for(int i = 0; i != numDice; ++i)
+            for (int i = 0; i != numDice; ++i)
             {
                 int die = RollDie();
                 while (die < min) die = RollDie();
@@ -116,7 +152,7 @@ namespace PracticeCommon.Common
                 if (discardLow && roll.Key != lowest.Key)
                 {
                     value += roll.Value;
-                } 
+                }
                 else
                 {
                     value += roll.Value;
@@ -125,8 +161,14 @@ namespace PracticeCommon.Common
 
             return value;
         }
-        #endregion
+
+        #endregion Methods
+
         #region Operators
+
+        /// <summary>
+        /// Addition operator
+        /// </summary>
         public static StatClass operator +(StatClass lhs, StatClass rhs)
         {
             if (lhs == null) return rhs;
@@ -143,6 +185,10 @@ namespace PracticeCommon.Common
 
             return statClass;
         }
+
+        /// <summary>
+        /// Subtraction operator
+        /// </summary>
         public static StatClass operator -(StatClass lhs, StatClass rhs)
         {
             if (lhs == null) return rhs;
@@ -159,6 +205,7 @@ namespace PracticeCommon.Common
 
             return statClass;
         }
-        #endregion
+
+        #endregion Operators
     }
 }
