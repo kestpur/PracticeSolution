@@ -1,23 +1,16 @@
-﻿using PracticeCommon.Interfaces;
-
-using PracticeCommon;
+﻿using PracticeCommon;
 using PracticeCommon.BaseClasses;
-using PracticeCommon.Monsters;
+using PracticeCommon.Interfaces;
 
 using PracticeViewModel.Interfaces;
 using PracticeViewModel.Payloads;
 
+using Prism.Commands;
 using Prism.Mvvm;
 
 using PubSub;
 
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Commands;
 
 namespace PracticeViewModel
 {
@@ -30,12 +23,14 @@ namespace PracticeViewModel
         public DelegateCommand RemoveCharacterCommand { get; private set; }
 
         private ObservableCollection<Creature> creatures = new ObservableCollection<Creature>();
+
         public ObservableCollection<Creature> Creatures
         {
             get => creatures;
         }
 
         private Creature selectedCreature;
+
         public Creature SelectedCreature
         {
             get => selectedCreature;
@@ -61,17 +56,21 @@ namespace PracticeViewModel
         }
 
         #region Methods
+
         public void AddCreature(Creature creature)
         {
             creatures.Add(creature);
         }
-        #endregion
+
+        #endregion Methods
 
         #region PubSub Functions
+
         public void SubscribeToPubSubEvents()
         {
             Hub.Subscribe<CharacterPayload>(OnAddCharacter);
         }
+
         public void UnsubscribeFromPubSubEvents()
         {
             Hub.Unsubscribe<CharacterPayload>(this);
@@ -85,6 +84,6 @@ namespace PracticeViewModel
             }
         }
 
-        #endregion
+        #endregion PubSub Functions
     }
 }

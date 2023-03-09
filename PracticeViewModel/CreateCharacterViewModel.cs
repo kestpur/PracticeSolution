@@ -16,24 +16,34 @@ using System.Linq;
 
 namespace PracticeViewModel
 {
-    public class CreateCharacterViewModel : BindableBase, 
+    public class CreateCharacterViewModel : BindableBase,
         ICreateCharacterViewModel, ISubscribable
     {
+        #region Commands
 
         public DelegateCommand RollCommand { get; private set; }
         public DelegateCommand SaveCommand { get; private set; }
         public DelegateCommand RenameCommand { get; private set; }
         public DelegateCommand CancelCommand { get; private set; }
 
+        #endregion Commands
+
+        #region ICreateCharacterViewModel
+
         public IView View { get; set; }
+
+        #endregion ICreateCharacterViewModel
+
+        #region Properties
+
         private Character model;
         public ICreature Model => model;
+
         public Character Character
         {
             get => model;
             set => SetProperty(ref model, value);
         }
-        public Hub Hub => Hub.Default;
 
         public CharacterRace SelectedRace
         {
@@ -46,6 +56,10 @@ namespace PracticeViewModel
             get => model.CharacterClass;
             set => model.CharacterClass = value;
         }
+
+        /// <summary>
+        /// CharacterRaceValues used to display in the dropdown
+        /// </summary>
         public IEnumerable<CharacterRace> CharacterRaceValues
         {
             get
@@ -54,6 +68,10 @@ namespace PracticeViewModel
                     .Cast<CharacterRace>();
             }
         }
+
+        /// <summary>
+        /// CharacterClassValues used to display in the dropdown
+        /// </summary>
         public IEnumerable<CharacterClass> CharacterClassValues
         {
             get
@@ -63,60 +81,91 @@ namespace PracticeViewModel
             }
         }
 
+        #endregion Properties
+
+        public Hub Hub => Hub.Default;
+
         #region Construction
+
+        /// <summary>
+        /// Constructor for this ViewModel
+        /// </summary>
         public CreateCharacterViewModel()
         {
             var character = new Character();
             character.Init();
 
-            RollCommand = new DelegateCommand(OnRoll, CanRoll);
-            SaveCommand = new DelegateCommand(OnSave, CanSave);
-            RenameCommand = new DelegateCommand(OnRename, CanRename);
-            CancelCommand = new DelegateCommand(OnCancel, CanCancel);
+            CreateCommands();
 
             Character = character;
             SubscribeToPubSubEvents();
         }
+
+        /// <summary>
+        /// Destructor for this ViewModel
+        /// </summary>
         ~CreateCharacterViewModel()
         {
             UnsubscribeFromPubSubEvents();
         }
-        #endregion
-        #region Event Functions
-        private void OnCancel()
-        {
 
+        #endregion Construction
+
+        #region Event Functions
+
+        /// <summary>
+        /// Create the Commands used by this ViewModel
+        /// </summary>
+        private void CreateCommands()
+        {
+            RollCommand = new DelegateCommand(OnRoll, CanRoll);
+            SaveCommand = new DelegateCommand(OnSave, CanSave);
         }
-        private bool canCancel = false;
-        private bool CanCancel() { return canCancel; }
+
+        /// <summary>
+        /// This rolls the dice for the character stats
+        /// </summary>
         private void OnRoll()
         {
             model.Init();
         }
-        private bool CanRoll() { return true; }
 
+        private bool CanRoll()
+        { return true; }
+
+        /// <summary>
+        /// This saves the character that was built
+        /// - Currently application only moves the character to the next screen
+        /// </summary>
         private void OnSave()
         {
-            // this needs to let the next view models to be created and displayed
             var payload = new CharacterPayload("save", Character);
             Hub.Publish(payload);
         }
-        private bool CanSave() { return true; }
 
-        private void OnRename()
-        {
-            // this needs to let the current view allow the name to be changed
-        }
-        private bool CanRename() { return false; }
-        #endregion
-        #region PubSub Functions
+        private bool CanSave()
+        { return true; }
+
+        #endregion Event Functions
+
+        #region ISubscribable
+
+        /// <summary>
+        /// The method used for subscribing to PubSub events
+        /// - called in the constructor
+        /// </summary>
         public void SubscribeToPubSubEvents()
         {
         }
 
+        /// <summary>
+        /// The method used for unsubscribing to PubSub events
+        /// - called in the destructor
+        /// </summary>
         public void UnsubscribeFromPubSubEvents()
         {
         }
-        #endregion
+
+        #endregion ISubscribable
     }
 }
