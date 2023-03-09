@@ -34,7 +34,7 @@ namespace PracticeCommon.BaseClasses
         #endregion
         #region Properties
 
-        private string name = "Enter Name";
+        private string name;
         [DataMember]
         public string Name
         {

@@ -7,6 +7,7 @@
              xmlns:enum="clr-namespace:PracticeCommon.Enums;assembly=PracticeCommon"
              xmlns:helpers="clr-namespace:PracticeCommon.Helpers;assembly=PracticeCommon"
              xmlns:local="clr-namespace:PracticeGUI"
+             xmlns:adorners="http://gu.se/Adorners"
              mc:Ignorable="d" 
              d:DesignHeight="200"
              d:DesignWidth="500">
@@ -14,6 +15,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="Styles/StatsClassDataType.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <con:StatsToIntConverter x:Key="StatsToIntConverter"/>
             <con:StatsModifierConverter x:Key="StatsModifierConverter"/>
@@ -34,10 +36,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" 
                             Grid.Column="0"
@@ -54,7 +54,9 @@
                              Height="23" Margin="5" 
                              TextWrapping="NoWrap" 
                              Text="{Binding Character.Name}" 
-                             VerticalAlignment="Top" MinWidth="400"/>
+                             VerticalAlignment="Top" MinWidth="400"
+                             adorners:Watermark.Text="Enter Character Name" 
+                             adorners:Watermark.VisibleWhen="EmptyAndNotKeyboardFocused"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Grid.Column="0"
@@ -86,167 +88,18 @@
                               SelectedItem="{Binding SelectedClass}"
                               ItemsSource="{Binding CharacterClassValues}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" 
-                        Grid.Column="0" 
-                        Grid.Row="2" 
-                        HorizontalAlignment="Right">
-                    <Label Content=" Str:"
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                           HorizontalAlignment="Left" 
-                           VerticalAlignment="Top"
-                           Height="23" Margin="5"/>
-                    <TextBox x:Name="strBox" 
-                             HorizontalAlignment="Left" 
-                             Height="23" Margin="5" 
-                             HorizontalContentAlignment="Center" 
-                             VerticalContentAlignment="Center"
-                             TextWrapping="NoWrap" IsReadOnly="True"
-                             Text="{Binding Character.StatClass.Strength}" 
-                             VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="strModBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                    Content="{Binding Character.StatClass.Strength, Converter={StaticResource StatsModifierConverter}}" 
-                    VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" 
-                            Grid.Column="1" 
-                            Grid.Row="2" 
-                            HorizontalAlignment="Left">
-                    <Label Content=" Int:"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top"
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"
-                   Height="23" Margin="5"/>
-                    <TextBox x:Name="intBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                    TextWrapping="NoWrap" IsReadOnly="True"
-                             HorizontalContentAlignment="Center" 
-                             VerticalContentAlignment="Center"
-                    Text="{Binding Character.StatClass.Intelligence}" 
-                    VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="intModBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                    Content="{Binding Character.StatClass.Intelligence, Converter={StaticResource StatsModifierConverter}}" 
-                    VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
-                <StackPanel x:Name="Dex"
-                            Orientation="Horizontal" 
-                            Grid.Column="0" 
-                            Grid.Row="3" 
-                            HorizontalAlignment="Right">
-                    <Label Content=" Dex:"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top"
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"                           
-                   Height="23" Margin="5"/>
-                    <TextBox x:Name="dexBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                             HorizontalContentAlignment="Center"
-                             VerticalContentAlignment="Center"
-                    TextWrapping="NoWrap" IsReadOnly="True"
-                    Text="{Binding Character.StatClass.Dexterity}" 
-                    VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="dexModBox" 
-                           HorizontalAlignment="Left" 
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"
-                           Height="23" Margin="5" 
-                           Content="{Binding Character.StatClass.Dexterity, Converter={StaticResource StatsModifierConverter}}" 
-                           VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" 
-                            Grid.Column="1" 
-                            Grid.Row="3" 
-                            x:Name="Wis"
-                            HorizontalAlignment="Left">
-                    <Label Content="Wis:"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top"
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"
-                   Height="23" Margin="5"/>
-                    <TextBox x:Name="wisBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                             HorizontalContentAlignment="Center"
-                             VerticalContentAlignment="Center"
-                    TextWrapping="NoWrap" IsReadOnly="True"
-                    Text="{Binding Character.StatClass.Wisdom}" 
-                    VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="wisModBox" 
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"
-                           HorizontalAlignment="Left" 
-                           Height="23" Margin="5" 
-                           Content="{Binding Character.StatClass.Wisdom, Converter={StaticResource StatsModifierConverter}}" 
-                           VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" 
-                            Grid.Column="0" 
-                            Grid.Row="4"
-                            x:Name="Con"
-                            HorizontalAlignment="Right">
-                    <Label Content=" Con:"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top"
-                           HorizontalContentAlignment="Center" 
-                           VerticalContentAlignment="Center"
-                   Height="23" Margin="5"/>
-                    <TextBox x:Name="conBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                    TextWrapping="NoWrap" 
-                             IsReadOnly="True"
-                             HorizontalContentAlignment="Center" 
-                             VerticalContentAlignment="Center"
-                    Text="{Binding Character.StatClass.Constitution}" 
-                    VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="conModBox" 
-                           HorizontalContentAlignment="Center"
-                           VerticalContentAlignment="Center"
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                    Content="{Binding Character.StatClass.Constitution, Mode=OneWay, Converter={StaticResource StatsModifierConverter}}" 
-                    VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" 
-                            Grid.Column="1" 
-                            Grid.Row="4"
-                            x:Name="Cha"
-                            HorizontalAlignment="Left">
-                    <Label Content="Cha:"
-                   HorizontalAlignment="Left" 
-                   VerticalAlignment="Top"
-                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                   Height="23" Margin="5"/>
-                    <TextBox x:Name="chaBox" 
-                    HorizontalAlignment="Left" 
-                    Height="23" Margin="5" 
-                    TextWrapping="NoWrap" 
-                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                    Text="{Binding Character.StatClass.Charisma}" 
-                    VerticalAlignment="Top" Width="40"/>
-                    <Label x:Name="chaModBox" 
-                           HorizontalAlignment="Left" 
-                           HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                           Height="23" Margin="5" 
-                           Content="{Binding Character.StatClass.Charisma, Converter={StaticResource StatsModifierConverter}}" 
-                           VerticalAlignment="Top" Width="40"/>
-                </StackPanel>
+
+                <ContentControl ContentTemplate="{StaticResource StatsClassTemplate}" 
+                                Content="{Binding Character.StatClass}"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="2" 
+                                Margin="3"
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"/>
+
                 <StackPanel Orientation="Horizontal"
                             Grid.Column="0"
-                            Grid.Row="5"
+                            Grid.Row="3"
                             Grid.ColumnSpan="2"
                             x:Name="Total"
                             HorizontalAlignment="Center">
@@ -254,12 +107,19 @@
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
                            Height="23" Margin="5"/>
-                    <TextBox x:Name="totalBox"
-                             HorizontalAlignment="Left"
-                             Height="23" Margin="5"
-                             TextWrapping="NoWrap" 
-                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                             Text="{Binding Character.StatClass, Converter={StaticResource StatsToIntConverter}}"/>
+
+                    <Border VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            BorderBrush="Blue"
+                            BorderThickness="1">
+                        <TextBlock x:Name="totalBox" 
+                                   HorizontalAlignment="Left" 
+                                   Height="23" Margin="5" 
+                                   TextWrapping="NoWrap"
+                                   Text="{Binding Character.StatClass,
+                                        Converter={StaticResource StatsToIntConverter}}" 
+                                   VerticalAlignment="Top" Width="40"/>
+                    </Border>
                 </StackPanel>
             </Grid>
             <StackPanel Orientation="Horizontal" 
@@ -272,6 +132,7 @@
                         Content="Roll"
                         FontSize="16" IsDefault="True" />
                 <Button x:Name="saveBtn" 
+                        IsEnabled="{Binding ElementName=nameBox, Path=Text.Length}"
                         Style="{StaticResource RoundButton}"
                         Command="{Binding SaveCommand}"
                         Content="Save" 

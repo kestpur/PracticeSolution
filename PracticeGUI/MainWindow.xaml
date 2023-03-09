@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeGUI"
-        
+        Style="{DynamicResource WinAll}"
         xmlns:vms="clr-namespace:PracticeViewModel;assembly=PracticeViewModel"
         mc:Ignorable="d"
         Title="MainWindow" >
     <Window.Resources>
         <!-- this is for custom resources -->
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style x:Key="WinAll" TargetType="{x:Type Window}">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
     </Window.Resources>
     <Grid>
         <!-- This should look like the Bard's Tale layout -->
