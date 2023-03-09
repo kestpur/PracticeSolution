@@ -34,6 +34,7 @@ namespace PracticeViewModel
         {
             get => creatures;
         }
+
         private Creature selectedCreature;
         public Creature SelectedCreature
         {
@@ -41,7 +42,8 @@ namespace PracticeViewModel
             set
             {
                 SetProperty(ref selectedCreature, value);
-                Hub.Publish(new CharacterPayload("Selected", selectedCreature as Character));
+                if (value != null) Hub.Publish(new CharacterPayload("Selected", selectedCreature as Character));
+                else Hub.Publish(new CharacterPayload("None_Selected", null));
             }
         }
 
@@ -52,6 +54,7 @@ namespace PracticeViewModel
         {
             SubscribeToPubSubEvents();
         }
+
         ~MultipleCreaturesViewModel()
         {
             UnsubscribeFromPubSubEvents();

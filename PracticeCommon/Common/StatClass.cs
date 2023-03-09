@@ -72,15 +72,15 @@ namespace PracticeCommon.Common
         }
         #endregion
         #region Methods
-        public void Init(int numDice, bool discardLow = false)
+        public void Init(int numDice, bool discardLow = false, int min = 2)
         {
 
-            Charisma = GetStatValue(numDice, discardLow);
-            Strength = GetStatValue(numDice, discardLow);
-            Intelligence = GetStatValue(numDice, discardLow);
-            Wisdom = GetStatValue(numDice, discardLow);
-            Constitution = GetStatValue(numDice, discardLow);
-            Dexterity = GetStatValue(numDice, discardLow);
+            Charisma = GetStatValue(numDice, discardLow, min);
+            Strength = GetStatValue(numDice, discardLow, min);
+            Intelligence = GetStatValue(numDice, discardLow, min);
+            Wisdom = GetStatValue(numDice, discardLow, min);
+            Constitution = GetStatValue(numDice, discardLow, min);
+            Dexterity = GetStatValue(numDice, discardLow, min);
         }
 
         public static int Modifier(int value)
@@ -96,12 +96,15 @@ namespace PracticeCommon.Common
             int die = DieTypeHelper.RollDie(rand, Enums.DieType.SIX);
             return die;
         }
-        private int GetStatValue(int numDice, bool discardLow)
+
+        private int GetStatValue(int numDice, bool discardLow, int min)
         {
             Dictionary<int, int> rolls = new Dictionary<int, int>();
             for(int i = 0; i != numDice; ++i)
             {
-                rolls.Add(i, RollDie());
+                int die = RollDie();
+                while (die < min) die = RollDie();
+                rolls.Add(i, die);
             }
 
             var lowest = rolls.OrderBy(kvp => kvp.Value).First();

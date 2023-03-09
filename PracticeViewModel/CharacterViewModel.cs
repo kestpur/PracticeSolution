@@ -25,6 +25,13 @@ namespace PracticeViewModel
         public IView View { get; set; }
         public Hub Hub => Hub.Default;
 
+        private bool showCharacter;
+        public bool ShowCharacter
+        {
+            get => showCharacter;
+            set => SetProperty(ref showCharacter, value);
+        }
+
         public CharacterViewModel()
         {
             SubscribeToPubSubEvents();
@@ -44,6 +51,12 @@ namespace PracticeViewModel
             if(payload.Key.ToUpper() == "SELECTED")
             {
                 Character = payload.Payload;
+                ShowCharacter = true;
+            }
+            if(payload.Key.ToUpper() == "NONE_SELECTED")
+            {
+                Character = null;
+                ShowCharacter = false;
             }
         }
 
