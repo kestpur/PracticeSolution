@@ -59,6 +59,13 @@ namespace PracticeCommon.BaseClasses
             get => statClass;
             set => SetProperty(ref statClass, value);
         }
+        private SaveClass saveClass;
+        [DataMember]
+        public SaveClass SaveClass
+        {
+            get => saveClass;
+            set => SetProperty(ref saveClass, value);
+        }
 
         private string description;
         [DataMember]

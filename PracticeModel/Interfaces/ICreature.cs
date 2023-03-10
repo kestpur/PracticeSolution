@@ -19,6 +19,7 @@ namespace PracticeCommon.Interfaces
 
         CharacterClass CharacterClass { get; set; }
         StatClass StatClass { get; set; }
+        SaveClass SaveClass { get; set; }
         string Description { get; set; }
     }
 }

@@ -15,8 +15,6 @@ namespace PracticeCommon.Helpers
         {
             var stat = new StatClass();
             return stat;
-        }
-
-       
+        }       
     }
 }

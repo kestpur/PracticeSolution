@@ -1,24 +1,20 @@
-﻿using PracticeCommon.Enums;
-
-using PracticeCommon.BaseClasses;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PracticeCommon.BaseClasses;
+using PracticeCommon.Enums;
 using PracticeCommon.Helpers;
 
 namespace PracticeCommon
 {
     public class Character : Creature
     {
+        #region Properties
+
         public override string CreatureType()
         {
             return "Character";
         }
 
         private CharacterRace characterRace;
+
         public CharacterRace CharacterRace
         {
             get => characterRace;
@@ -36,6 +32,10 @@ namespace PracticeCommon
             }
         }
 
+        #endregion Properties
+
+        #region Constructors
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -46,6 +46,11 @@ namespace PracticeCommon
             RollStats();
         }
 
+        #endregion Constructors
+
+        /// <summary>
+        /// Rolls the stats
+        /// </summary>
         public void RollStats()
         {
             Init();
@@ -53,6 +58,8 @@ namespace PracticeCommon
             var raceMod = CharacterRaceHelper.RaceStat(characterRace);
             var stat = StatClass + raceMod;
             StatClass = stat;
+
+            SaveClass = CharacterRaceHelper.RaceSaves(characterRace, StatClass);
         }
     }
 }
