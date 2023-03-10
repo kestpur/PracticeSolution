@@ -11,12 +11,13 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/StatsClassDataType.xaml" />
                 <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="Styles/SaveClassDatatemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <con:StatsModifierConverter x:Key="StatsModifierConverter" />
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid
+    <Grid Margin="5"
         Visibility="{Binding ShowCharacter, Converter={StaticResource BooleanToVisibilityConverter}}">
         <!-- This should not be visible if a character is not selected -->
         <Border BorderThickness="2"
@@ -34,17 +35,46 @@
                     <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
                 <!-- Use this to display the character stats -->
-                <TextBlock Text="{Binding Character.Name}"
-                           Grid.Row="0" Grid.ColumnSpan="2" />
-                <TextBlock Text="{Binding Character.CharacterRace}"
-                           Grid.Row="1" />
-                <TextBlock Text="{Binding Chracter.CharacterClass}"
-                           Grid.Column="1"
-                           Grid.Row="1" />
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="0" Grid.ColumnSpan="2" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                    <Label Content="Name:" FontWeight="Bold"
+                           Margin="0,0,5,0"/>
+                    <Border HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Character.Name}" />
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Column="0">
+                    <Label Content="Race:" FontWeight="Bold" Margin="0,0,5,0"/>
+                    <Border HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Character.CharacterRace}"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="1" Grid.Column="1">
+                    <Label Content="Class:" FontWeight="Bold" Margin="0,0,5,0"/>
+                    <Border HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Character.CharacterClass}"/>
+                    </Border>
+                </StackPanel>
                 <ContentControl ContentTemplate="{StaticResource StatsClassTemplate}"
                                 Content="{Binding Character.StatClass}"
                                 Grid.Row="2"
-                                Grid.ColumnSpan="2" />
+                                Grid.Column="0" />
+                
+                <ContentControl ContentTemplate="{StaticResource SaveClassTemplate}"
+                                Content="{Binding Character.SaveClass}"
+                                Grid.Row="2"
+                                Grid.Column="1" />
             </Grid>
         </Border>
         <StackPanel Orientation="Horizontal"
