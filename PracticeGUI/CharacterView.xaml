@@ -29,8 +29,8 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="30" />
                 </Grid.RowDefinitions>
@@ -50,7 +50,8 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Grid.Column="0">
-                    <Label Content="Race:" FontWeight="Bold" Margin="0,0,5,0"/>
+                    <Label Content="Race:" 
+                           FontWeight="Bold" Margin="0,0,5,0"/>
                     <Border HorizontalAlignment="Center"
                             VerticalAlignment="Center">
                         <TextBlock Text="{Binding Character.CharacterRace}"/>
@@ -66,15 +67,20 @@
                         <TextBlock Text="{Binding Character.CharacterClass}"/>
                     </Border>
                 </StackPanel>
-                <ContentControl ContentTemplate="{StaticResource StatsClassTemplate}"
-                                Content="{Binding Character.StatClass}"
-                                Grid.Row="2"
-                                Grid.Column="0" />
-                
-                <ContentControl ContentTemplate="{StaticResource SaveClassTemplate}"
-                                Content="{Binding Character.SaveClass}"
-                                Grid.Row="2"
-                                Grid.Column="1" />
+                <StackPanel Grid.Row="2" Grid.Column="0" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                    <Label Content="Stats:" FontWeight="Bold" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                    <ContentControl ContentTemplate="{StaticResource StatsClassTemplate}"
+                                Content="{Binding Character.StatClass}" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="1" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center">
+                    <Label Content="Saves:" FontWeight="Bold" Margin="0,0,0,5" HorizontalAlignment="Center"/>
+                    <ContentControl ContentTemplate="{StaticResource SaveClassTemplate}"
+                                Content="{Binding Character.SaveClass}"/>
+                </StackPanel>
             </Grid>
         </Border>
         <StackPanel Orientation="Horizontal"

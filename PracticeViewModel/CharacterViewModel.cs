@@ -12,6 +12,9 @@ using System;
 
 namespace PracticeViewModel
 {
+    /// <summary>
+    /// This is the viewmodel used to display the character
+    /// </summary>
     public class CharacterViewModel : BindableBase, ICharacterViewModel, ISubscribable
     {
         #region Commands

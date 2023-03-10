@@ -2,6 +2,8 @@
 using PracticeCommon.Enums;
 using PracticeCommon.Helpers;
 
+using System;
+
 namespace PracticeCommon
 {
     public class Character : Creature
@@ -63,6 +65,9 @@ namespace PracticeCommon
             raceMod = CharacterRaceHelper.RaceStat(newRace);
             stat = stat + raceMod;
             StatClass = stat;
+
+            SaveClass = new Common.SaveClass(StatClass);
         }
+
     }
 }
