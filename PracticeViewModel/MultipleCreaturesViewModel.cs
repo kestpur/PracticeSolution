@@ -90,7 +90,7 @@ namespace PracticeViewModel
 
         private bool CanViewCreature(Creature creature)
         {
-            return false;
+            return true;
         }
 
         /// <summary>
