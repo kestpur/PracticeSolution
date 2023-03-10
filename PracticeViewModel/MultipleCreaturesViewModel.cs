@@ -1,5 +1,6 @@
 ﻿using PracticeCommon;
 using PracticeCommon.BaseClasses;
+using PracticeCommon.Helpers;
 using PracticeCommon.Interfaces;
 
 using PracticeViewModel.Interfaces;
@@ -10,7 +11,9 @@ using Prism.Mvvm;
 
 using PubSub;
 
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace PracticeViewModel
 {
@@ -20,8 +23,12 @@ namespace PracticeViewModel
     public class MultipleCreaturesViewModel : BindableBase,
         IMultipleCreaturesViewModel, ISubscribable
     {
-        public DelegateCommand RemoveCharacterCommand { get; private set; }
-
+        #region Commands
+        public DelegateCommand<Creature> RemoveCreatureCommand { get; private set; }
+        public DelegateCommand<Creature> LevelUpCommand { get; private set; }
+        public DelegateCommand<Creature> ViewCreatureCommand { get; private set; }
+        #endregion
+        #region Properties
         private ObservableCollection<Creature> creatures = new ObservableCollection<Creature>();
 
         public ObservableCollection<Creature> Creatures
@@ -41,12 +48,15 @@ namespace PracticeViewModel
                 else Hub.Publish(new CharacterPayload("None_Selected", null));
             }
         }
-
+        #endregion
+        #region IMultipleCreaturesViewModel
         public IView View { get; set; }
-        public Hub Hub => Hub.Default;
+        #endregion
 
+        #region Constructors/Destructors
         public MultipleCreaturesViewModel()
         {
+            CreateCommands();
             SubscribeToPubSubEvents();
         }
 
@@ -54,17 +64,10 @@ namespace PracticeViewModel
         {
             UnsubscribeFromPubSubEvents();
         }
+        #endregion
 
-        #region Methods
-
-        public void AddCreature(Creature creature)
-        {
-            creatures.Add(creature);
-        }
-
-        #endregion Methods
-
-        #region PubSub Functions
+        #region ISubscribable
+        public Hub Hub => Hub.Default;
 
         public void SubscribeToPubSubEvents()
         {
@@ -75,6 +78,60 @@ namespace PracticeViewModel
         {
             Hub.Unsubscribe<CharacterPayload>(this);
         }
+        #endregion
+
+        #region Event Functions
+        private void CreateCommands()
+        {
+            RemoveCreatureCommand = new DelegateCommand<Creature>(OnRemoveCreature, CanRemoveCreature);
+            LevelUpCommand = new DelegateCommand<Creature>(OnLevelUp, CanLevelUp);
+            ViewCreatureCommand = new DelegateCommand<Creature>(OnViewCreature, CanViewCreature);
+        }
+
+        private bool CanViewCreature(Creature creature)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// TODO: currently not implemented
+        /// </summary>
+        /// <param name="obj"></param>
+        private void OnViewCreature(Creature creature)
+        {
+            Hub.Publish(new CharacterPayload("Selected", creature as Character));
+        }
+
+        private void OnLevelUp(Creature creature)
+        {
+            var character = creature as Character;
+            if(character != null)
+            {
+                character.LevelUp();
+            }
+        }
+
+        private bool CanLevelUp(Creature creature)
+        {
+            var character = creature as Character;
+            if(character != null)
+            {
+                return CharacterClassHelper.ReadyToLevel(character.XP, character.Level);
+            }
+            return false;
+        }
+
+        private bool CanRemoveCreature(Creature creature)
+        {
+            var character = creature as Character;
+            if (character != null && character.IsPlayer) return false;
+            return true;
+        }
+
+        private void OnRemoveCreature(Creature creature)
+        {
+            Creatures.Remove(Creatures.SingleOrDefault(i => i.Name == creature.Name));
+        }
 
         private void OnAddCharacter(CharacterPayload payload)
         {
@@ -83,7 +140,12 @@ namespace PracticeViewModel
                 AddCreature(payload.Payload);
             }
         }
+        #endregion
 
-        #endregion PubSub Functions
+        public void AddCreature(Creature creature)
+        {
+            creatures.Add(creature);
+        }
+
     }
 }

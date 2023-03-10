@@ -20,14 +20,7 @@ namespace PracticeCommon
             get => characterRace;
             set
             {
-                var statClass = StatClass;
-
-                var raceMod = CharacterRaceHelper.RaceStat(characterRace);
-                var stat = statClass - raceMod;
-                raceMod = CharacterRaceHelper.RaceStat(value);
-                stat = stat + raceMod;
-                StatClass = stat;
-
+                UpdateStatClass(characterRace, value);
                 SetProperty(ref characterRace, value);
             }
         }
@@ -60,6 +53,16 @@ namespace PracticeCommon
             StatClass = stat;
 
             SaveClass = CharacterRaceHelper.RaceSaves(characterRace, StatClass);
+        }
+        private void UpdateStatClass(CharacterRace oldRace, CharacterRace newRace)
+        {
+            var statClass = StatClass;
+
+            var raceMod = CharacterRaceHelper.RaceStat(oldRace);
+            var stat = statClass - raceMod;
+            raceMod = CharacterRaceHelper.RaceStat(newRace);
+            stat = stat + raceMod;
+            StatClass = stat;
         }
     }
 }

@@ -3,24 +3,38 @@ using PracticeCommon.Interfaces;
 
 using PracticeViewModel.Interfaces;
 
+using Prism.Commands;
 using Prism.Mvvm;
 
 using PubSub;
+
+using System;
 
 namespace PracticeViewModel
 {
     public class CharacterViewModel : BindableBase, ICharacterViewModel, ISubscribable
     {
+        #region Commands
+
+        public DelegateCommand CloseCommand { get; private set; }
+
+        #endregion Commands
+
         #region ICharacterViewModel
+
         /// <summary>
         /// The view that this viewmodel is bound to
         /// </summary>
         public IView View { get; set; }
-        #endregion
+
+        #endregion ICharacterViewModel
+
         #region Properties
+
         private Character model;
 
         public IModel Model => model;
+
         /// <summary>
         /// The Character to display
         /// </summary>
@@ -31,6 +45,7 @@ namespace PracticeViewModel
         }
 
         private bool showCharacter;
+
         /// <summary>
         /// The ShowCharacter View flag
         /// </summary>
@@ -39,20 +54,28 @@ namespace PracticeViewModel
             get => showCharacter;
             set => SetProperty(ref showCharacter, value);
         }
-        #endregion
+
+        #endregion Properties
+
         #region Constructors/Destructor
+
         public CharacterViewModel()
         {
             SubscribeToPubSubEvents();
+            CreateCommands();
         }
 
         ~CharacterViewModel()
         {
             UnsubscribeFromPubSubEvents();
         }
-        #endregion
+
+        #endregion Constructors/Destructor
+
         #region ISubscribable
+
         public Hub Hub => Hub.Default;
+
         public void SubscribeToPubSubEvents()
         {
             Hub.Subscribe<ICharacterPayload>(OnCharacterSelected);
@@ -62,7 +85,25 @@ namespace PracticeViewModel
         {
             Hub.Unsubscribe<ICharacterPayload>(this);
         }
-        #endregion
+
+        #endregion ISubscribable
+
+        #region Event Handlers
+        private void CreateCommands()
+        {
+            CloseCommand = new DelegateCommand(OnClose, CanClose);
+        }
+
+        private bool CanClose()
+        {
+            return true;
+        }
+
+        private void OnClose()
+        {
+            Character = null;
+            ShowCharacter = false;
+        }
 
         private void OnCharacterSelected(ICharacterPayload payload)
         {
@@ -77,5 +118,6 @@ namespace PracticeViewModel
                 ShowCharacter = false;
             }
         }
+        #endregion
     }
 }

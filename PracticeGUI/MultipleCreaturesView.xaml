@@ -11,6 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/DatagridStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
@@ -42,8 +43,22 @@
                 </DataGrid.CellStyle>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Delete"
-                                  Command="{Binding RemoveCharacterCommand}" />
+                        <MenuItem Header="Remove"
+                                  Visibility="{Binding Path=PlacementTarget.SelectedItem.ReadyToLevel, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                    Converter={StaticResource BooleanToVisibilityConverter}}"
+                                  Command="{Binding RemoveCreatureCommand}" 
+                                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                    Path=PlacementTarget.SelectedItem}"/>
+                        <MenuItem Header="Level"
+                                  Visibility="{Binding Path=PlacementTarget.SelectedItem.IsNotPlayer, RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                    Converter={StaticResource BooleanToVisibilityConverter}}"
+                                  Command="{Binding LevelUpCommand}"
+                                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                    Path=PlacementTarget.SelectedItem}"/>
+                        <MenuItem Header="View"
+                                  Command="{Binding ViewCreatureCommand}"
+                                  CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                    Path=PlacementTarget.SelectedItem}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
                 <DataGrid.Columns>

@@ -83,8 +83,6 @@ namespace PracticeViewModel
 
         #endregion Properties
 
-        public Hub Hub => Hub.Default;
-
         #region Construction
 
         /// <summary>
@@ -94,6 +92,7 @@ namespace PracticeViewModel
         {
             var character = new Character();
             character.Init();
+            character.IsPlayer = true;
 
             CreateCommands();
 
@@ -149,7 +148,7 @@ namespace PracticeViewModel
         #endregion Event Functions
 
         #region ISubscribable
-
+        public Hub Hub => Hub.Default;
         /// <summary>
         /// The method used for subscribing to PubSub events
         /// - called in the constructor

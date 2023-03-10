@@ -56,6 +56,7 @@
     <Compile Include="StringExtensionUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrintEnumExtensionTests.cs" />
+    <Compile Include="ClassHelperUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

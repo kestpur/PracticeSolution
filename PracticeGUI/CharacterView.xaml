@@ -10,17 +10,18 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/StatsClassDataType.xaml" />
+                <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <con:StatsModifierConverter x:Key="StatsModifierConverter" />
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <Grid
+        Visibility="{Binding ShowCharacter, Converter={StaticResource BooleanToVisibilityConverter}}">
         <!-- This should not be visible if a character is not selected -->
         <Border BorderThickness="2"
                 BorderBrush="Blue"
-                Background="Transparent"
-                Visibility="{Binding ShowCharacter, Converter={StaticResource BooleanToVisibilityConverter}}">
+                Background="Transparent">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -46,5 +47,13 @@
                                 Grid.ColumnSpan="2" />
             </Grid>
         </Border>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right">
+            <Button Content="Close"
+                    Style="{StaticResource RoundButton}"
+                    Width="50" Height="25"
+                    Command="{Binding CloseCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
