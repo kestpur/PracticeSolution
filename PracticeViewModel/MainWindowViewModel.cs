@@ -46,6 +46,12 @@ namespace PracticeViewModel
             private set => SetProperty(ref showGame, value);
         }
 
+        private string currentImage;
+        public string CurrentImage
+        {
+            get => currentImage;
+            set => SetProperty(ref currentImage, value);
+        }
         #endregion Properties
 
         #region Constructor/Destructor
@@ -58,6 +64,7 @@ namespace PracticeViewModel
             ShowCharacterCreator = true;
             ShowGame = false;
             SubscribeToPubSubEvents();
+            GoToTavern();
         }
 
         /// <summary>
@@ -96,6 +103,10 @@ namespace PracticeViewModel
         }
 
         #endregion ISubscribable
+        private void GoToTavern()
+        {
+            CurrentImage = "Images/medieval-tavern.jpg";
+        }
 
         private void OnSaveCharacter(CharacterPayload payload)
         {

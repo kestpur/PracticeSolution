@@ -174,7 +174,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Images\medieval-tavern.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
