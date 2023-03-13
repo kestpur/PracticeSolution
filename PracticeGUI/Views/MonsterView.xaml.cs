@@ -1,8 +1,4 @@
-﻿using PracticeCommon.Interfaces;
-
-using PracticeViewModel;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PracticeGUI
+namespace PracticeGUI.Views
 {
     /// <summary>
-    /// Interaction logic for CreateCharacterView.xaml
+    /// Interaction logic for MonsterView.xaml
     /// </summary>
-    public partial class CreateCharacterView : UserControl, IView
+    public partial class MonsterView : UserControl
     {
-        public CreateCharacterView()
+        public MonsterView()
         {
-
-            DataContext = new CreateCharacterViewModel();
             InitializeComponent();
-
-            ViewModel.View = this;
         }
-
-        public IViewModel ViewModel => DataContext as IViewModel;
     }
 }

@@ -1,0 +1,7 @@
+﻿This file contains a list of where the image files were found. If I found a license for an
+image, the name of the license file will also be included in this list - with the file added to this folder.
+
+Artists should always get recognition for their work, even if they aren't being paid.
+
+1. dwarf-figher.png, https://www.seekpng.com/idown/u2q8t4e6r5e6i1r5_d-d-dwarf-png-picture-transparent-stock-d/
+2. medieval-tavern.jpg

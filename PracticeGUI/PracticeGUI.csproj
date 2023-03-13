@@ -86,15 +86,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CharacterView.xaml">
+    <Page Include="Views\CharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateCharacterView.xaml">
+    <Page Include="Views\CreateCharacterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -103,23 +103,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Behaviors\DataGridFullRowSelectBehavior.cs" />
-    <Compile Include="CharacterView.xaml.cs">
+    <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\StatsModifierConverter.cs" />
     <Compile Include="Converters\StatsToIntConverter.cs" />
-    <Compile Include="CreateCharacterView.xaml.cs">
+    <Compile Include="Views\CreateCharacterView.xaml.cs">
       <DependentUpon>CreateCharacterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MonsterView.xaml">
+    <Page Include="Views\MonsterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MultipleCreaturesView.xaml">
+    <Page Include="Views\MultipleCreaturesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,10 +141,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MonsterView.xaml.cs">
+    <Compile Include="Views\MonsterView.xaml.cs">
       <DependentUpon>MonsterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MultipleCreaturesView.xaml.cs">
+    <Compile Include="Views\MultipleCreaturesView.xaml.cs">
       <DependentUpon>MultipleCreaturesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

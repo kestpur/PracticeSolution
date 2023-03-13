@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PracticeGUI.CreateCharacterView"
+﻿<UserControl x:Class="PracticeGUI.Views.CreateCharacterView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,8 +14,8 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/ButtonStyles.xaml" />
-                <ResourceDictionary Source="Styles/StatsClassDataType.xaml"/>
+                <ResourceDictionary Source="../Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="../Styles/StatsClassDataType.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <con:StatsToIntConverter x:Key="StatsToIntConverter"/>
             <con:StatsModifierConverter x:Key="StatsModifierConverter"/>

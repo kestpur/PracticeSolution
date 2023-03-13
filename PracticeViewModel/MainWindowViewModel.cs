@@ -105,7 +105,7 @@ namespace PracticeViewModel
         #endregion ISubscribable
         private void GoToTavern()
         {
-            CurrentImage = "Images/medieval-tavern.jpg";
+            CurrentImage = "../Images/medieval-tavern.jpg";
         }
 
         private void OnSaveCharacter(CharacterPayload payload)

@@ -4,7 +4,7 @@ using PracticeViewModel;
 
 using System.Windows;
 
-namespace PracticeGUI
+namespace PracticeGUI.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

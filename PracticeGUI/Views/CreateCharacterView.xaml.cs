@@ -4,16 +4,17 @@ using PracticeViewModel;
 
 using System.Windows.Controls;
 
-namespace PracticeGUI
+namespace PracticeGUI.Views
 {
     /// <summary>
-    /// Interaction logic for MultipleCreaturesView.xaml
+    /// Interaction logic for CreateCharacterView.xaml
     /// </summary>
-    public partial class MultipleCreaturesView : UserControl, IView
+    public partial class CreateCharacterView : UserControl, IView
     {
-        public MultipleCreaturesView()
+        public CreateCharacterView()
         {
-            DataContext = new MultipleCreaturesViewModel();
+
+            DataContext = new CreateCharacterViewModel();
             InitializeComponent();
 
             ViewModel.View = this;
