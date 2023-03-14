@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Styles/DatagridStyles.xaml" />
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/DatagridStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
@@ -22,7 +22,7 @@
             <!-- this will show the party initially -->
             <DataGrid ItemsSource="{Binding Creatures}"
                       SelectedItem="{Binding Path=SelectedCreature, Mode=TwoWay}"
-                      Style="{DynamicResource DGHeaderStyle}"
+                      Style="{DynamicResource DataGridHeaderStyle}"
                       AlternatingRowBackground="LightBlue"
                       CanUserAddRows="False"
                       CanUserDeleteRows="False"
@@ -70,16 +70,21 @@
                     <DataGridTextColumn Header="AC" />
                     <DataGridTextColumn Header="Status" />
                     <DataGridTextColumn Header="Str"
-                                    Width="30"
-                                    Binding="{Binding StatClass.Strength}" />
-                    <DataGridTextColumn Header="Dex" Binding="{Binding StatClass.Dexterity}" />
-                    <DataGridTextColumn Header="Con" Binding="{Binding StatClass.Constitution}" />
-                    <DataGridTextColumn Header="Int" Binding="{Binding StatClass.Intelligence}" />
-                    <DataGridTextColumn Header="Wis" Binding="{Binding StatClass.Wisdom}" />
-                    <DataGridTextColumn Header="Cha" Binding="{Binding StatClass.Charisma}" />
+                                        Width="30"
+                                        Binding="{Binding StatClass.Strength}" />
+                    <DataGridTextColumn Header="Dex" 
+                                        Binding="{Binding StatClass.Dexterity}" />
+                    <DataGridTextColumn Header="Con" 
+                                        Binding="{Binding StatClass.Constitution}" />
+                    <DataGridTextColumn Header="Int" 
+                                        Binding="{Binding StatClass.Intelligence}" />
+                    <DataGridTextColumn Header="Wis" 
+                                        Binding="{Binding StatClass.Wisdom}" />
+                    <DataGridTextColumn Header="Cha" 
+                                        Binding="{Binding StatClass.Charisma}" />
                     <DataGridTextColumn Header="Description"
-                                    Width="*"
-                                    Binding="{Binding Description}" />
+                                        Width="*"
+                                        Binding="{Binding Description}" />
                 </DataGrid.Columns>
             </DataGrid>
         </Border>

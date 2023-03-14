@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="DGHeaderStyle" TargetType="{x:Type DataGrid}">
+    <Style x:Key="DataGridHeaderStyle" TargetType="{x:Type DataGrid}">
         <Setter Property="ColumnHeaderStyle" 
-                Value="{DynamicResource DGCHeaderStyle}"/>
+                Value="{DynamicResource DataGridColumnHeaderStyle}"/>
     </Style>
-    <Style x:Key="DGCHeaderStyle" 
+    <Style x:Key="DataGridColumnHeaderStyle" 
            BasedOn="{StaticResource {x:Type DataGridColumnHeader}}"
            TargetType="DataGridColumnHeader">
         <Setter Property="Height" Value="30"/>

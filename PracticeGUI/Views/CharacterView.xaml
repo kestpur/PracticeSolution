@@ -3,15 +3,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:con="clr-namespace:PracticeGUI.Converters"
+             xmlns:con="clr-namespace:PracticeCommonGUI.Converters;assembly=PracticeCommonGUI"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Styles/StatsClassDataType.xaml" />
-                <ResourceDictionary Source="../Styles/ButtonStyles.xaml" />
-                <ResourceDictionary Source="../Styles/SaveClassDatatemplate.xaml"/>
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/StatsClassDataTemplate.xaml" />
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/SaveClassDataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <con:StatsModifierConverter x:Key="StatsModifierConverter" />
             <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -88,7 +88,7 @@
                     HorizontalAlignment="Right"
                     Margin="5">
             <Button Content="Close"
-                    Style="{StaticResource RoundButton}"
+                    Style="{StaticResource RoundButtonStyle}"
                     Width="50" Height="25"
                     Command="{Binding CloseCommand}"/>
         </StackPanel>

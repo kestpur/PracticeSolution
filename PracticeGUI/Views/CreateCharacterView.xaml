@@ -3,10 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:con="clr-namespace:PracticeGUI.Converters"
-             xmlns:enum="clr-namespace:PracticeCommon.Enums;assembly=PracticeCommon"
-             xmlns:helpers="clr-namespace:PracticeCommon.Helpers;assembly=PracticeCommon"
-             xmlns:local="clr-namespace:PracticeGUI"
+             xmlns:con="clr-namespace:PracticeCommonGUI.Converters;assembly=PracticeCommonGUI"
              xmlns:adorners="http://gu.se/Adorners"
              mc:Ignorable="d" 
              d:DesignHeight="200"
@@ -14,8 +11,8 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../Styles/ButtonStyles.xaml" />
-                <ResourceDictionary Source="../Styles/StatsClassDataType.xaml"/>
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/StatsClassDataTemplate.xaml" />
+                <ResourceDictionary Source="/PracticeCommonGUI;component/Styles/ButtonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <con:StatsToIntConverter x:Key="StatsToIntConverter"/>
             <con:StatsModifierConverter x:Key="StatsModifierConverter"/>
@@ -127,13 +124,13 @@
                         HorizontalAlignment="Right"
                         Margin="0">
                 <Button x:Name="rollBtn" 
-                        Style="{StaticResource RoundButton}"
+                        Style="{StaticResource RoundButtonStyle}"
                         Command="{Binding RollCommand}"
                         Content="Roll"
                         FontSize="16" IsDefault="True" />
                 <Button x:Name="saveBtn" 
                         IsEnabled="{Binding ElementName=nameBox, Path=Text.Length}"
-                        Style="{StaticResource RoundButton}"
+                        Style="{StaticResource RoundButtonStyle}"
                         Command="{Binding SaveCommand}"
                         Content="Save" 
                         Margin="10,0,25,0" FontSize="16" />

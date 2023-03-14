@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace PracticeGUI.Converters
+namespace PracticeCommonGUI.Converters
 {
-
     public class StatsModifierConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

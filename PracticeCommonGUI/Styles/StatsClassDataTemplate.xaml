@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:con="clr-namespace:PracticeGUI.Converters"
+                    xmlns:con="clr-namespace:PracticeCommonGUI.Converters"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <DataTemplate x:Key="StatTemplate">
         <DataTemplate.Resources>

@@ -106,8 +106,6 @@
     <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converters\StatsModifierConverter.cs" />
-    <Compile Include="Converters\StatsToIntConverter.cs" />
     <Compile Include="Views\CreateCharacterView.xaml.cs">
       <DependentUpon>CreateCharacterView.xaml</DependentUpon>
     </Compile>
@@ -120,22 +118,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MultipleCreaturesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\ButtonStyles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\DatagridStyles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Styles\SaveClassDatatemplate.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Styles\StatsClassDataType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,6 +159,10 @@
     <Resource Include="Images\medieval-tavern.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PracticeCommonGUI\PracticeCommonGUI.csproj">
+      <Project>{e64e52b9-88ee-4ca1-9610-73db0603d4f8}</Project>
+      <Name>PracticeCommonGUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
       <Project>{d81ecc53-88f9-4646-98df-79a8cf005ec8}</Project>
       <Name>PracticeCommon</Name>
