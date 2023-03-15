@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using PracticeCommon.Enums;
-using PracticeCommon.Extensions;
+using Practice.Common.Enums;
+using Practice.Common.Extensions;
 
 using System;
 

@@ -1,14 +1,6 @@
-﻿using PracticeCommon;
+﻿using Practice.Model;
 
-using PracticeViewModel.Interfaces;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PracticeViewModel.Payloads
+namespace Practice.Model.PubSub.Payload
 {
     public class CharacterPayload : ICharacterPayload
     {

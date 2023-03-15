@@ -1,17 +1,17 @@
-﻿using PracticeCommon;
-using PracticeCommon.BaseClasses;
-using PracticeCommon.Helpers;
-using PracticeCommon.Interfaces;
+﻿using Practice.Common.BaseClasses;
+using Practice.Common.Helpers;
+using Practice.Common.Interfaces;
+using Practice.Common.PubSub.Interfaces;
+using Practice.Model;
+using Practice.Model.PubSub.Payload;
 
 using PracticeViewModel.Interfaces;
-using PracticeViewModel.Payloads;
 
 using Prism.Commands;
 using Prism.Mvvm;
 
 using PubSub;
 
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -28,6 +28,7 @@ namespace PracticeViewModel
         public DelegateCommand<Creature> LevelUpCommand { get; private set; }
         public DelegateCommand<Creature> ViewCreatureCommand { get; private set; }
         #endregion
+
         #region Properties
         private ObservableCollection<Creature> creatures = new ObservableCollection<Creature>();
 

@@ -159,17 +159,17 @@
     <Resource Include="Images\medieval-tavern.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PracticeCommonGUI\PracticeCommonGUI.csproj">
+    <ProjectReference Include="..\PracticeCommonGUI\Practice.Common.GUI.csproj">
       <Project>{e64e52b9-88ee-4ca1-9610-73db0603d4f8}</Project>
-      <Name>PracticeCommonGUI</Name>
+      <Name>Practice.Common.GUI</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
+    <ProjectReference Include="..\PracticeCommon\Practice.Common.csproj">
       <Project>{d81ecc53-88f9-4646-98df-79a8cf005ec8}</Project>
-      <Name>PracticeCommon</Name>
+      <Name>Practice.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PracticeModel\PracticeModel.csproj">
+    <ProjectReference Include="..\PracticeModel\Practice.Model.csproj">
       <Project>{6FF46C29-6F94-46F0-A3B6-38A3BED7C91E}</Project>
-      <Name>PracticeModel</Name>
+      <Name>Practice.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\PracticeViewModel\PracticeViewModel.csproj">
       <Project>{67953ee1-9ce7-4e03-ae13-68116b847c0a}</Project>

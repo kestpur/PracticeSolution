@@ -2,11 +2,11 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("PracticeCommon.UnitTests")]
+[assembly: AssemblyTitle("Practice.Common.UnitTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PracticeCommon.UnitTests")]
+[assembly: AssemblyCompany("Practice Software")]
+[assembly: AssemblyProduct("Practice.Common.UnitTests")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

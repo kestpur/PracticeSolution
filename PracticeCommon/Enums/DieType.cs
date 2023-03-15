@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Enums
+namespace Practice.Common.Enums
 {
     public enum DieType
     {

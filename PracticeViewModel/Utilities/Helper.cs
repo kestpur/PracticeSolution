@@ -1,8 +1,9 @@
 ﻿using System;
 
-using PracticeCommon;
-using PracticeCommon.BaseClasses;
-using PracticeCommon.Monsters;
+using Practice.Common;
+using Practice.Common.BaseClasses;
+using Practice.Common.Monsters;
+using Practice.Model;
 
 namespace PracticeViewModel.Utilities
 {

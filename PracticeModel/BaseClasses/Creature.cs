@@ -1,14 +1,14 @@
-﻿using PracticeCommon.Common;
-using PracticeCommon.Enums;
-using PracticeCommon.Helpers;
-using PracticeCommon.Interfaces;
+﻿using Practice.Common.Classes;
+using Practice.Common.Enums;
+using Practice.Common.Helpers;
+using Practice.Common.Interfaces;
 
 using Prism.Mvvm;
 
 using System;
 using System.Runtime.Serialization;
 
-namespace PracticeCommon.BaseClasses
+namespace Practice.Common.BaseClasses
 {
     /// <summary>
     /// this is the base class for all creatures

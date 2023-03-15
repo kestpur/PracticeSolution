@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
+    <ProjectReference Include="..\PracticeCommon\Practice.Common.csproj">
       <Project>{d81ecc53-88f9-4646-98df-79a8cf005ec8}</Project>
-      <Name>PracticeCommon</Name>
+      <Name>Practice.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -59,13 +59,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
+    <ProjectReference Include="..\PracticeCommon\Practice.Common.csproj">
       <Project>{D81ECC53-88F9-4646-98DF-79A8CF005EC8}</Project>
-      <Name>PracticeCommon</Name>
+      <Name>Practice.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PracticeModel\PracticeModel.csproj">
+    <ProjectReference Include="..\PracticeModel\Practice.Model.csproj">
       <Project>{6FF46C29-6F94-46F0-A3B6-38A3BED7C91E}</Project>
-      <Name>PracticeModel</Name>
+      <Name>Practice.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

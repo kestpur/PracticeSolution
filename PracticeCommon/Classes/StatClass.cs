@@ -1,4 +1,4 @@
-﻿using PracticeCommon.Helpers;
+﻿using Practice.Common.Helpers;
 
 using Prism.Mvvm;
 
@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace PracticeCommon.Common
+namespace Practice.Common.Classes
 {
     [Serializable]
     public class StatClass : BindableBase

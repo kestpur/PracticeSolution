@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Common
+namespace Practice.Common.Classes
 {
     /// <summary>
     /// These are the saves for the character

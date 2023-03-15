@@ -1,9 +1,9 @@
-﻿using Practice.Model;
+﻿
 using Practice.Common.Interfaces;
 
 using Prism.Commands;
 
-namespace PracticeViewModel.Interfaces
+namespace Practice.Character.Creation.Interfaces
 {
     public interface ICreateCharacterViewModel : IViewModel
     {
@@ -11,6 +11,5 @@ namespace PracticeViewModel.Interfaces
         DelegateCommand SaveCommand { get; }
         DelegateCommand RenameCommand { get; }
 
-        Character Character { get; set; }
     }
 }

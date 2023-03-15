@@ -1,4 +1,4 @@
-﻿using PracticeCommon.Interfaces;
+﻿using Practice.Common.Interfaces;
 
 using PracticeViewModel;
 

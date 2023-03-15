@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Interfaces
+namespace Practice.Common.Interfaces
 {
     /// <summary>
     /// 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Comparers
+namespace Practice.Common.Comparers
 {
     internal class CharComparer : IComparer<char>
     {

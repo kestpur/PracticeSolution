@@ -1,9 +1,9 @@
-﻿using PracticeCommon.Common;
-using PracticeCommon.Enums;
+﻿using Practice.Common.Classes;
+using Practice.Common.Enums;
 
 using System;
 
-namespace PracticeCommon.Helpers
+namespace Practice.Common.Helpers
 {
     /// <summary>
     /// These helper functions help make character modifications

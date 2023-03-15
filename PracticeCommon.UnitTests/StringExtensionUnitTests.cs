@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using PracticeCommon.Extensions;
+using Practice.Common.Extensions;
 
 using System;
 

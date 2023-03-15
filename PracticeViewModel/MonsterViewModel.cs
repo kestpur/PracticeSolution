@@ -1,5 +1,5 @@
-﻿using PracticeCommon.BaseClasses;
-using PracticeCommon.Interfaces;
+﻿using Practice.Common.BaseClasses;
+using Practice.Common.Interfaces;
 
 using PracticeViewModel.Interfaces;
 

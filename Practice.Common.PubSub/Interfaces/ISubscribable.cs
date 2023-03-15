@@ -1,6 +1,6 @@
 ﻿using PubSub;
 
-namespace PracticeCommon.Interfaces
+namespace Practice.Common.PubSub.Interfaces
 {
     /// <summary>
     /// The ISubscribable interface for common functions that use PubSub

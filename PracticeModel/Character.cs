@@ -1,10 +1,11 @@
-﻿using PracticeCommon.BaseClasses;
-using PracticeCommon.Enums;
-using PracticeCommon.Helpers;
+﻿using Practice.Common.BaseClasses;
+using Practice.Common.Enums;
+using Practice.Common.Helpers;
+using Practice.Common.Classes;
 
 using System;
 
-namespace PracticeCommon
+namespace Practice.Model
 {
     public class Character : Creature
     {
@@ -66,8 +67,7 @@ namespace PracticeCommon
             stat = stat + raceMod;
             StatClass = stat;
 
-            SaveClass = new Common.SaveClass(StatClass);
+            SaveClass = new SaveClass(StatClass);
         }
-
     }
 }

@@ -1,11 +1,8 @@
-﻿using Practice.Common;
+﻿using Practice.Character.Creation.Interfaces;
 using Practice.Common.Enums;
 using Practice.Common.Interfaces;
 using Practice.Common.PubSub.Interfaces;
-using Practice.Model;
 using Practice.Model.PubSub.Payload;
-
-using PracticeViewModel.Interfaces;
 
 using Prism.Commands;
 using Prism.Mvvm;
@@ -16,7 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PracticeViewModel
+namespace Practice.Creation.ViewModels
 {
     public class CreateCharacterViewModel : BindableBase,
         ICreateCharacterViewModel, ISubscribable
@@ -38,10 +35,10 @@ namespace PracticeViewModel
 
         #region Properties
 
-        private Character model;
+        private Model.Character model;
         public ICreature Model => model;
 
-        public Character Character
+        public Model.Character Character
         {
             get => model;
             set => SetProperty(ref model, value);
@@ -92,7 +89,7 @@ namespace PracticeViewModel
         /// </summary>
         public CreateCharacterViewModel()
         {
-            var character = new Character();
+            var character = new Model.Character();
             character.Init();
             character.IsPlayer = true;
 

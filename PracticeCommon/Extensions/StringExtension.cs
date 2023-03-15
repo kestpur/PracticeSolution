@@ -1,9 +1,9 @@
-﻿using PracticeCommon.Comparers;
+﻿using Practice.Common.Comparers;
 
 using System;
 using System.Linq;
 
-namespace PracticeCommon.Extensions
+namespace Practice.Common.Extensions
 {
     public static class StringExtension
     {

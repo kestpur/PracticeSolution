@@ -1,5 +1,7 @@
-﻿using PracticeCommon;
-using PracticeCommon.Interfaces;
+﻿using Practice.Common.Interfaces;
+using Practice.Common.PubSub.Interfaces;
+using Practice.Model;
+using Practice.Model.PubSub.Payload;
 
 using PracticeViewModel.Interfaces;
 
@@ -7,8 +9,6 @@ using Prism.Commands;
 using Prism.Mvvm;
 
 using PubSub;
-
-using System;
 
 namespace PracticeViewModel
 {
@@ -81,12 +81,12 @@ namespace PracticeViewModel
 
         public void SubscribeToPubSubEvents()
         {
-            Hub.Subscribe<ICharacterPayload>(OnCharacterSelected);
+            Hub.Subscribe<CharacterPayload>(OnCharacterSelected);
         }
 
         public void UnsubscribeFromPubSubEvents()
         {
-            Hub.Unsubscribe<ICharacterPayload>(this);
+            Hub.Unsubscribe<CharacterPayload>(this);
         }
 
         #endregion ISubscribable
@@ -108,7 +108,7 @@ namespace PracticeViewModel
             ShowCharacter = false;
         }
 
-        private void OnCharacterSelected(ICharacterPayload payload)
+        private void OnCharacterSelected(CharacterPayload payload)
         {
             if (payload.Key.ToUpper() == "SELECTED")
             {

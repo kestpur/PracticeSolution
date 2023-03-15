@@ -1,6 +1,6 @@
-﻿using PracticeCommon.Interfaces;
-
-using PracticeViewModel.Payloads;
+﻿using Practice.Common.Interfaces;
+using Practice.Common.PubSub.Interfaces;
+using Practice.Model.PubSub.Payload;
 
 using Prism.Mvvm;
 

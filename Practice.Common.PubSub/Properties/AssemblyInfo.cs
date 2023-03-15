@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Practice.Character.Creation")]
+[assembly: AssemblyTitle("Practice.Common.PubSub")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Practice Software")]
-[assembly: AssemblyProduct("Practice.Character.Creation")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Practice.Common.PubSub")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("abebcc29-8b43-4987-a794-48eb2a942d22")]
+[assembly: Guid("5cc272d3-40de-4197-a52a-4347ae3d7e1e")]
 
 // Version information for an assembly consists of the following four values:
 //

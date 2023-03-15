@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PracticeCommon\PracticeCommon.csproj">
+    <ProjectReference Include="..\PracticeCommon\Practice.Common.csproj">
       <Project>{D81ECC53-88F9-4646-98DF-79A8CF005EC8}</Project>
-      <Name>PracticeCommon</Name>
+      <Name>Practice.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

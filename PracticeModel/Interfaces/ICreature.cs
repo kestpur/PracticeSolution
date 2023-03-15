@@ -1,6 +1,6 @@
-﻿using PracticeCommon.Enums;
+﻿using Practice.Common.Enums;
 
-using PracticeCommon.Common;
+using Practice.Common.Classes;
 
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Interfaces
+namespace Practice.Common.Interfaces
 {
     public interface ICreature
     {

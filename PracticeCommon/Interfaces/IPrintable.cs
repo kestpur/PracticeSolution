@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCommon.Interfaces
+namespace Practice.Common.Interfaces
 {
     /// <note>
     /// I'm not sure I like this interface for going forward
