@@ -1,10 +1,8 @@
 ﻿using Practice.Common.Interfaces;
 
-using PracticeViewModel;
-
 using System.Windows.Controls;
 
-namespace PracticeGUI.Views
+namespace Practice.Details.GUI.Views
 {
     /// <summary>
     /// Interaction logic for CharacterView.xaml

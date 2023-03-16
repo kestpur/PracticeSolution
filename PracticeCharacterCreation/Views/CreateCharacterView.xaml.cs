@@ -1,10 +1,9 @@
 ﻿using Practice.Common.Interfaces;
-
-using PracticeViewModel;
+using Practice.Creation.ViewModels;
 
 using System.Windows.Controls;
 
-namespace PracticeGUI.Views
+namespace Practice.Character.Creation.Views
 {
     /// <summary>
     /// Interaction logic for CreateCharacterView.xaml

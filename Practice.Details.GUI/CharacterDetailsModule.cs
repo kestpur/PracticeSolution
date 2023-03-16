@@ -1,4 +1,4 @@
-﻿using Practice.Character.Creation.Views;
+﻿using Practice.Details.GUI.Views;
 
 using Prism.Ioc;
 using Prism.Modularity;
@@ -10,22 +10,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PracticeCharacterCreation
+namespace Practice.Details.GUI
 {
-    /// <summary>
-    /// TODO: Make sure the Region is setup correctly within the main window
-    /// </summary>
-    public class PracticeCharacterCreationModule : IModule
+    public class CharacterDetailsModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            regionManager.RegisterViewWithRegion("ContentRegion", typeof(CreateCharacterView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
             //containerRegistry.RegisterForNavigation<PersonDetail>();
+            containerRegistry.RegisterForNavigation<CharacterView>();
         }
     }
 }

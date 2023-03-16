@@ -1,16 +1,15 @@
 ﻿using Practice.Common.Interfaces;
 using Practice.Common.PubSub.Interfaces;
+using Practice.Details.GUI.Interfaces;
 using Practice.Model;
 using Practice.Model.PubSub.Payload;
-
-using PracticeViewModel.Interfaces;
 
 using Prism.Commands;
 using Prism.Mvvm;
 
 using PubSub;
 
-namespace PracticeViewModel
+namespace Practice.Details.GUI
 {
     /// <summary>
     /// This is the viewmodel used to display the character

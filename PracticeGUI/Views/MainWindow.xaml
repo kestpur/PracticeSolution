@@ -4,6 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeGUI.Views"
+        xmlns:create="clr-namespace:Practice.Character.Creation.Views;assembly=PracticeCharacterCreation"
+        xmlns:details="clr-namespace:Practice.Details.GUI.Views;assembly=Practice.Details.GUI"
         Style="{DynamicResource WindowFont}"
         mc:Ignorable="d"
         Title="MainWindow">
@@ -25,7 +27,7 @@
                 Visibility="{Binding ShowCharacterCreator, Converter={StaticResource BooleanToVisibilityConverter}}"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
-            <local:CreateCharacterView />
+            <create:CreateCharacterView />
         </Border>
         <Border x:Name="Game"
                 Visibility="{Binding ShowGame, Converter={StaticResource BooleanToVisibilityConverter}}">
@@ -42,7 +44,7 @@
                         <ColumnDefinition x:Name="picture" />
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <local:CharacterView />
+                        <details:CharacterView />
                     </StackPanel>
                     <Image Grid.Column="1" Source="{Binding CurrentImage}"/>
                 </Grid>
