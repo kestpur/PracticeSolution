@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Practice.Details.GUI
 {
+    [Module(ModuleName = "CharacterDetailsModule", OnDemand = false)]
     public class CharacterDetailsModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)

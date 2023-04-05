@@ -15,7 +15,8 @@ namespace PracticeCharacterCreation
     /// <summary>
     /// TODO: Make sure the Region is setup correctly within the main window
     /// </summary>
-    public class PracticeCharacterCreationModule : IModule
+    [Module(ModuleName = "CharacterCreationModule", OnDemand = false)]
+    public class CharacterCreationModule : IModule
     {
         public void OnInitialized(IContainerProvider containerProvider)
         {
