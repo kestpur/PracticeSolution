@@ -1,27 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31727.386
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeGUI", "PracticeGUI\PracticeGUI.csproj", "{17DCCFDE-37B1-4079-8317-E7691A69A28E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.GUI", "Practice.GUI\Practice.GUI.csproj", "{17DCCFDE-37B1-4079-8317-E7691A69A28E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Model", "PracticeModel\Practice.Model.csproj", "{6FF46C29-6F94-46F0-A3B6-38A3BED7C91E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Model", "Practice.Model\Practice.Model.csproj", "{6FF46C29-6F94-46F0-A3B6-38A3BED7C91E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeViewModel", "PracticeViewModel\PracticeViewModel.csproj", "{67953EE1-9CE7-4E03-AE13-68116B847C0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.ViewModel", "Practice.ViewModel\Practice.ViewModel.csproj", "{67953EE1-9CE7-4E03-AE13-68116B847C0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common", "PracticeCommon\Practice.Common.csproj", "{D81ECC53-88F9-4646-98DF-79A8CF005EC8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common", "Practice.Common\Practice.Common.csproj", "{D81ECC53-88F9-4646-98DF-79A8CF005EC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common.UnitTests", "PracticeCommon.UnitTests\Practice.Common.UnitTests.csproj", "{BEDBE6E1-A021-4C2A-80A2-654389E627B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common.UnitTests", "Practice.Common.UnitTests\Practice.Common.UnitTests.csproj", "{BEDBE6E1-A021-4C2A-80A2-654389E627B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeModel.UnitTests", "PracticeModel.UnitTests\PracticeModel.UnitTests.csproj", "{980492D5-B5D4-4C53-95B6-29B1330DE7CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Model.UnitTests", "Practice.Model.UnitTests\Practice.Model.UnitTests.csproj", "{980492D5-B5D4-4C53-95B6-29B1330DE7CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Character.Creation", "PracticeCharacterCreation\Practice.Character.Creation.csproj", "{ABEBCC29-8B43-4987-A794-48EB2A942D22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Character.Creation", "Practice.Character.Creation\Practice.Character.Creation.csproj", "{ABEBCC29-8B43-4987-A794-48EB2A942D22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common.GUI", "PracticeCommonGUI\Practice.Common.GUI.csproj", "{E64E52B9-88EE-4CA1-9610-73DB0603D4F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common.GUI", "Practice.Common.GUI\Practice.Common.GUI.csproj", "{E64E52B9-88EE-4CA1-9610-73DB0603D4F8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Common.PubSub", "Practice.Common.PubSub\Practice.Common.PubSub.csproj", "{5CC272D3-40DE-4197-A52A-4347AE3D7E1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice.Details.GUI", "Practice.Details.GUI\Practice.Details.GUI.csproj", "{18A23A3F-6D6A-47DF-801E-238BE4E00173}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{844BA639-E06F-4429-B7FE-70463636F0B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +74,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BEDBE6E1-A021-4C2A-80A2-654389E627B9} = {844BA639-E06F-4429-B7FE-70463636F0B3}
+		{980492D5-B5D4-4C53-95B6-29B1330DE7CD} = {844BA639-E06F-4429-B7FE-70463636F0B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {37FBEC68-FAB3-456A-A395-765248D6C4A9}
